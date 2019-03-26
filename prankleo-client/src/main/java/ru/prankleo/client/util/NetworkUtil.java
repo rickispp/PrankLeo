@@ -1,4 +1,4 @@
-package ru.crystals.prankleo.util;
+package ru.prankleo.client.util;
 
 import java.net.DatagramSocket;
 import java.net.InetAddress;

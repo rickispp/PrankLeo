@@ -1,4 +1,4 @@
-package ru.crystals.prankleo.dispatcher;
+package ru.prankleo.client.dispatcher;
 
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
@@ -9,18 +9,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
-import ru.crystals.prankleo.dto.Command;
-import ru.crystals.prankleo.dto.CurrentPointInfo;
-import ru.crystals.prankleo.dto.LeoNotificationCommand;
-import ru.crystals.prankleo.dto.LockComputatorCommand;
-import ru.crystals.prankleo.dto.OpenLinkInBrowserCommand;
-import ru.crystals.prankleo.dto.TrayNotificationCommand;
-import ru.crystals.prankleo.processor.CommandProcessor;
-import ru.crystals.prankleo.processor.LeoNotificationCommandProcessor;
-import ru.crystals.prankleo.processor.LockComputatorCommandProcessor;
-import ru.crystals.prankleo.processor.OpenLinkInBrowserCommandProcessor;
-import ru.crystals.prankleo.processor.TrayNotificationCommandProcessor;
-import ru.crystals.prankleo.util.NetworkUtil;
+import ru.prankleo.client.dto.TrayNotificationCommand;
+import ru.prankleo.client.processor.CommandProcessor;
+import ru.prankleo.client.processor.LeoNotificationCommandProcessor;
+import ru.prankleo.client.processor.OpenLinkInBrowserCommandProcessor;
+import ru.prankleo.client.util.NetworkUtil;
+import ru.prankleo.client.dto.Command;
+import ru.prankleo.client.dto.CurrentPointInfo;
+import ru.prankleo.client.dto.LeoNotificationCommand;
+import ru.prankleo.client.dto.LockComputatorCommand;
+import ru.prankleo.client.dto.OpenLinkInBrowserCommand;
+import ru.prankleo.client.processor.LockComputatorCommandProcessor;
+import ru.prankleo.client.processor.TrayNotificationCommandProcessor;
 
 import java.util.ArrayList;
 import java.util.Collections;

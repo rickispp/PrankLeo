@@ -1,6 +1,6 @@
-package ru.crystals.prankleo.processor;
+package ru.prankleo.client.processor;
 
-import ru.crystals.prankleo.dto.OpenLinkInBrowserCommand;
+import ru.prankleo.client.dto.OpenLinkInBrowserCommand;
 
 import java.awt.Desktop;
 import java.net.URI;

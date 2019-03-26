@@ -1,12 +1,16 @@
 apply plugin: 'java'
 
+version '0.0.1'
+
+sourceCompatibility = 1.8
+
 repositories {
     mavenCentral()
 }
 
 jar {
     manifest {
-        attributes('Main-Class': 'ru.crystals.prankleo.Main')
+        attributes('Main-Class': 'ru.prankleo.client.Main')
     }
 
     from {

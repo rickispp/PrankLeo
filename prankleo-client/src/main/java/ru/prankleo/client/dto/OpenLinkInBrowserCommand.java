@@ -1,4 +1,4 @@
-package ru.crystals.prankleo.dto;
+package ru.prankleo.client.dto;
 
 /**
  * Открыть ссылку в браузере

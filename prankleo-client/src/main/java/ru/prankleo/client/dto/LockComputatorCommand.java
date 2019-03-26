@@ -1,4 +1,4 @@
-package ru.crystals.prankleo.dto;
+package ru.prankleo.client.dto;
 
 /**
  * Заблокировать компутатор (WIN + L)

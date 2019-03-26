@@ -1,8 +1,8 @@
-package ru.crystals.prankleo;
+package ru.prankleo.client;
 
-import ru.crystals.prankleo.dispatcher.CommandDispatcher;
-import ru.crystals.prankleo.settings.ArgParser;
-import ru.crystals.prankleo.settings.Settings;
+import ru.prankleo.client.dispatcher.CommandDispatcher;
+import ru.prankleo.client.settings.ArgParser;
+import ru.prankleo.client.settings.Settings;
 
 public class Main {
 

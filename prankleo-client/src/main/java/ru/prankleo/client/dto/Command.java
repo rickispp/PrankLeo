@@ -1,4 +1,4 @@
-package ru.crystals.prankleo.dto;
+package ru.prankleo.client.dto;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;

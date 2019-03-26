@@ -1,6 +1,6 @@
-package ru.crystals.prankleo.processor;
+package ru.prankleo.client.processor;
 
-import ru.crystals.prankleo.dto.LeoNotificationCommand;
+import ru.prankleo.client.dto.LeoNotificationCommand;
 
 public class LeoNotificationCommandProcessor implements CommandProcessor<LeoNotificationCommand> {
 

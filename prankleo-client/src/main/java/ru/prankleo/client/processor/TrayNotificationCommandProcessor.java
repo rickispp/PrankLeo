@@ -1,6 +1,6 @@
-package ru.crystals.prankleo.processor;
+package ru.prankleo.client.processor;
 
-import ru.crystals.prankleo.dto.TrayNotificationCommand;
+import ru.prankleo.client.dto.TrayNotificationCommand;
 
 import java.awt.Image;
 import java.awt.SystemTray;

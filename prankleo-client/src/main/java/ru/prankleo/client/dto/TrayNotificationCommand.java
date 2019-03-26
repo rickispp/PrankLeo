@@ -1,4 +1,4 @@
-package ru.crystals.prankleo.dto;
+package ru.prankleo.client.dto;
 
 /**
  * Показать уведомление в трее

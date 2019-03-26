@@ -1,6 +1,6 @@
-package ru.crystals.prankleo.processor;
+package ru.prankleo.client.processor;
 
-import ru.crystals.prankleo.dto.Command;
+import ru.prankleo.client.dto.Command;
 
 public interface CommandProcessor<C extends Command> {
     void runCommand(C command);

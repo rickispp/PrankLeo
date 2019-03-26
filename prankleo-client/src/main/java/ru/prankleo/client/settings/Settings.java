@@ -1,4 +1,4 @@
-package ru.crystals.prankleo.settings;
+package ru.prankleo.client.settings;
 
 public class Settings {
     private boolean inSilentMode;

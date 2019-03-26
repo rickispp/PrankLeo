@@ -1,4 +1,4 @@
-package ru.crystals.prankleo.settings;
+package ru.prankleo.client.settings;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;

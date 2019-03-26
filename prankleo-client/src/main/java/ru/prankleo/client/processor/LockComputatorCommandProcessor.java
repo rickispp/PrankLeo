@@ -1,6 +1,6 @@
-package ru.crystals.prankleo.processor;
+package ru.prankleo.client.processor;
 
-import ru.crystals.prankleo.dto.LockComputatorCommand;
+import ru.prankleo.client.dto.LockComputatorCommand;
 
 public class LockComputatorCommandProcessor implements CommandProcessor<LockComputatorCommand> {
 
