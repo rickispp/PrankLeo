@@ -16,6 +16,11 @@ public class LeoNotificationCommand extends Command {
      */
     private String imageUrl;
 
+    /**
+     * Текст кнопки закрытия окна
+     */
+    private String closeButtonText;
+
     public String getMessage() {
         return message;
     }
@@ -30,5 +35,13 @@ public class LeoNotificationCommand extends Command {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getCloseButtonText() {
+        return closeButtonText;
+    }
+
+    public void setCloseButtonText(String closeButtonText) {
+        this.closeButtonText = closeButtonText;
     }
 }
