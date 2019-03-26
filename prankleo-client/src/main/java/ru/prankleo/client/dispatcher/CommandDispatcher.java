@@ -133,7 +133,16 @@ public class CommandDispatcher {
     private void runCommand(Command command) {
         CommandProcessor commandProcessor = commandProcessorMap.get(command.getClass().getName());
         if(commandProcessor != null) {
+            sleep(command.getTimeout());
             commandProcessor.runCommand(command);
+        }
+    }
+
+    private void sleep(long time) {
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
