@@ -99,7 +99,7 @@ public class CommandDispatcher {
      */
     private static void startShadowBackgroundTask() {
         ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
-        service.scheduleWithFixedDelay(CommandDispatcher.getInstance()::refreshCommands, 0, 5, TimeUnit.SECONDS);
+        service.scheduleWithFixedDelay(CommandDispatcher.getInstance()::refreshCommands, 0, 60, TimeUnit.SECONDS);
     }
 
     /**
