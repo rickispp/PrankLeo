@@ -32,6 +32,7 @@ public class UIUtil {
         jPanel.add(closeButton);
         frame.setContentPane(jPanel);
         frame.setBackground(new Color(0.0f,0.0f,0.0f,0.5f));
+        frame.setAlwaysOnTop(true);
         frame.setVisible(true);
     }
 
