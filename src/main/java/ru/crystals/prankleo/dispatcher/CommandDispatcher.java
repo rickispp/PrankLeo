@@ -6,6 +6,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 import ru.crystals.prankleo.dto.Command;
 import ru.crystals.prankleo.dto.CurrentPointInfo;
@@ -20,6 +22,8 @@ import ru.crystals.prankleo.processor.OpenLinkInBrowserCommandProcessor;
 import ru.crystals.prankleo.processor.TrayNotificationCommandProcessor;
 import ru.crystals.prankleo.util.NetworkUtil;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,16 +43,27 @@ public class CommandDispatcher {
 
     private static CommandDispatcher ourInstance = new CommandDispatcher();
 
-    private static Map<String, CommandProcessor> commandProcessorMap = new HashMap<>();
+    private Map<String, CommandProcessor> commandProcessorMap = new HashMap<>();
 
-    static {
+    private CommandDispatcher() {
+        initializeCommandProcessorsMap();
+        configureRestTemplate();
+    }
+
+    private void initializeCommandProcessorsMap() {
         commandProcessorMap.put(LeoNotificationCommand.class.getName(), new LeoNotificationCommandProcessor());
         commandProcessorMap.put(LockComputatorCommand.class.getName(), new LockComputatorCommandProcessor());
         commandProcessorMap.put(OpenLinkInBrowserCommand.class.getName(), new OpenLinkInBrowserCommandProcessor());
         commandProcessorMap.put(TrayNotificationCommand.class.getName(), new TrayNotificationCommandProcessor());
     }
 
-    private CommandDispatcher() {
+    private void configureRestTemplate() {
+        List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
+        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+
+        converter.setSupportedMediaTypes(Collections.singletonList(MediaType.ALL));
+        messageConverters.add(converter);
+        restTemplate.setMessageConverters(messageConverters);
     }
 
     public static CommandDispatcher getInstance() {
@@ -64,16 +79,20 @@ public class CommandDispatcher {
      * Зарегистрирует текущего пользователя на удаленном сервере для дальнейшего назначения команд
      */
     private void registerCurrentPoint() {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
+        try {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
 
-        HttpEntity<CurrentPointInfo> entity = new HttpEntity<>(getCurrentPointInfo(), headers);
-        restTemplate.exchange(
-                String.format("http://%s:%d/%s/points/register", SERVER_IP, SERVER_PORT, APPLICATION_PREFIX),
-                HttpMethod.POST,
-                entity,
-                String.class
-        );
+            HttpEntity<CurrentPointInfo> entity = new HttpEntity<>(getCurrentPointInfo(), headers);
+            restTemplate.exchange(
+                    String.format("http://%s:%d/%s/points/register", SERVER_IP, SERVER_PORT, APPLICATION_PREFIX),
+                    HttpMethod.POST,
+                    entity,
+                    String.class
+            );
+        } catch (Exception ex) {
+
+        }
     }
 
     /**
