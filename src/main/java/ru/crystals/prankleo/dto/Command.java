@@ -8,11 +8,12 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         property = "type"
 )
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = TrayNotificationAction.class, name = "TrayNotification"),
-        @JsonSubTypes.Type(value = LockComputatorAction.class, name = "LockComputator"),
-        @JsonSubTypes.Type(value = LeoNotificationAction.class, name = "LeoNotification")
+        @JsonSubTypes.Type(value = TrayNotificationCommand.class, name = "TrayNotification"),
+        @JsonSubTypes.Type(value = LockComputatorCommand.class, name = "LockComputator"),
+        @JsonSubTypes.Type(value = LeoNotificationCommand.class, name = "LeoNotification"),
+        @JsonSubTypes.Type(value = OpenLinkInBrowserCommand.class, name = "OpenLinkInBrowser")
 })
-public abstract class Action {
+public abstract class Command {
 
     /**
      * Время ожидания между получением экшна и непосредственным его выполнением
