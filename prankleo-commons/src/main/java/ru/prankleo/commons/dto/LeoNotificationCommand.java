@@ -1,4 +1,4 @@
-package ru.prankleo.client.dto;
+package ru.prankleo.commons.dto;
 
 /**
  * Самый смак.

@@ -19,6 +19,7 @@ jar {
 }
 
 dependencies {
+    compile project(':prankleo-commons')
     compile group: 'commons-cli', name: 'commons-cli', version: '1.4'
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.8'
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.9.8'
