@@ -34,7 +34,7 @@ import java.util.concurrent.TimeUnit;
 public class CommandDispatcher {
 
     private static final String SERVER_IP = "194.87.236.72";
-    private static final int SERVER_PORT = 8088;
+    private static final int SERVER_PORT = 8081;
 
     private RestTemplate restTemplate = new RestTemplate();
 
