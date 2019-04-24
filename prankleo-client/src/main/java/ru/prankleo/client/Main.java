@@ -21,6 +21,8 @@ public class Main {
             putSelfToAutoRunIfNeeded();
         }
 
+        //  Сишники пидоры
+
         CommandDispatcher.getInstance().start();
     }
 
